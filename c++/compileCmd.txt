@@ -1,0 +1,12 @@
+x86_64-w64-mingw32-g++ -c -o JNIConverter.o src/JNIConverter.cpp ^
+    -I"C:/Users/Smugg/vcpkg/installed/x64-windows/include/libheif" ^
+    -I"C:/Users/Smugg/vcpkg/installed/x64-windows/include" ^
+    -I"C:/libjpeg-turbo64/include" ^
+    -I"C:/Program Files/Zulu/zulu-8/include" ^
+    -I"C:/Program Files/Zulu/zulu-8/include/win32"
+
+    x86_64-w64-mingw32-g++ -shared -o libjni_converter.dll JNIConverter.o ^
+        -L"C:/Users/Smugg/vcpkg/installed/x64-windows/lib" ^
+        -L"C:/libjpeg-turbo64/lib" ^
+        -lheif -ljpeg ^
+        -Wl,--add-stdcall-alias
